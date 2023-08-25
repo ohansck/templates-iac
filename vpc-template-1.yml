@@ -24,7 +24,7 @@ Parameters:
         Description: Private Subnet CIDR for AZ2
         Type: String
         Default: 11.0.3.0/24
-    InternGroup:
+    CostGroup:
         Description: Name of intern group
         Type: String
 
@@ -38,7 +38,7 @@ Resources:
                 - Key: Name
                   Value: !Ref EnvironmentName
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
     PublicSubnet1:
         Type: AWS::EC2::Subnet
         Properties:
@@ -50,7 +50,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Public Subnet (AZ1)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
 
     PublicSubnet2:
         Type: AWS::EC2::Subnet
@@ -63,7 +63,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Public Subnet (AZ2)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
 
     PrivateSubnet1:
         Type: AWS::EC2::Subnet
@@ -76,7 +76,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Private Subnet (AZ1)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
     PrivateSubnet2:
         Type: AWS::EC2::Subnet
         Properties:
@@ -88,7 +88,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Private Subnet (AZ2)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
     PrivateRouteTable1:
         Type: AWS::EC2::RouteTable
         Properties:
@@ -97,7 +97,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Private Routes (AZ1)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
     DefaultPrivateRoute1:
         Type: AWS::EC2::Route
         Properties:
@@ -117,7 +117,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Private Routes (AZ2)
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
     DefaultPrivateRoute2:
         Type: AWS::EC2::Route
         Properties:
@@ -136,7 +136,7 @@ Resources:
                 - Key: Name
                   Value: !Ref EnvironmentName
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
 
     InternetGatewayAttachment:
         Type: AWS::EC2::VPCGatewayAttachment
@@ -174,7 +174,7 @@ Resources:
                 - Key: Name
                   Value: !Sub ${EnvironmentName} Public Routes
                 - Key: Intern-Group
-                  Value: !Ref InternGroup
+                  Value: !Ref CostGroup
 
     DefaultPublicRoute:
         Type: AWS::EC2::Route

@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  variables:
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - aws --version
+      - echo Nothing to install
+    finally:
+      - echo Install phase done
+  build:
+    on-failure: ABORT
+    commands:
+      - echo Entered the build phase...
+      - echo Starting cloudformation deployment
+      - aws cloudformation deploy \
+        --template-file vpc-template-1.yml \
+        --tags project="${PROJECT_TAG}" \
+        --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" \
+        --region us-east-1 \
+        --stack-name "ui-${CODEBUILD_BUILD_NUMBER}" \
+        --parameter-overrides EnvironmentName="${EnvironmentName}" VpcCIDR="${VpcCIDR}" PublicSubnet1CIDR="${PublicSubnet1CIDR}" PublicSubnet2CIDR="${PublicSubnet2CIDR}" PrivateSubnet1CIDR="${PrivateSubnet1CIDR}" PrivateSubnet2CIDR="${PrivateSubnet2CIDR}" CostGroup="${CostGroup}"
+      - echo deployment successful
+    finally:
+      - echo This always runs even if the install command fails
