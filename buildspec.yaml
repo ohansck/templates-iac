@@ -1,8 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-
 phases:
   install:
     commands:
@@ -14,8 +11,8 @@ phases:
   build:
     on-failure: ABORT
     commands:
-      - echo Entered the build phase...
-      - echo Starting cloudformation deployment
+      - echo "Entered the build phase"
+      - echo "Starting cloudformation deployment"
       - aws cloudformation deploy \
         --template-file vpc-template-1.yml \
         --tags project="${PROJECT_TAG}" \
