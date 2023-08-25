@@ -25,4 +25,4 @@ phases:
         --parameter-overrides EnvironmentName="${EnvironmentName}" VpcCIDR="${VpcCIDR}" PublicSubnet1CIDR="${PublicSubnet1CIDR}" PublicSubnet2CIDR="${PublicSubnet2CIDR}" PrivateSubnet1CIDR="${PrivateSubnet1CIDR}" PrivateSubnet2CIDR="${PrivateSubnet2CIDR}" CostGroup="${CostGroup}"
       - echo deployment successful
     finally:
-      - echo This always runs even if the install command fails
+      - echo This always runs even if the install command fail
