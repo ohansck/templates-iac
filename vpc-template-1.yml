@@ -1,5 +1,3 @@
-Description: >
-
 Parameters:
     EnvironmentName:
         Description: Environment name for resources
