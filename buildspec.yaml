@@ -4,7 +4,7 @@ env:
   variables:
     EnvironmentName: "${EnvironmentName}"
     CostGroup: "${CostGroup}"
-    PROJECT_TAG: "remote-iac"
+    PROJECT_TAG: "${PROJECT_TAG}"
 phases:
   install:
     commands:
