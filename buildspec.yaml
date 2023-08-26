@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    EnvironmentName: "${EnvironmentName}"
+    CostGroup: "${CostGroup}"
 phases:
   install:
     commands:
