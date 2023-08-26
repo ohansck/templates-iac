@@ -18,7 +18,7 @@ phases:
       - echo "Entered the build phase"
       - echo "Starting cloudformation deployment"
       - aws cloudformation deploy \
-        --template-file file://vpc-template-1.yml \
+        --template-file vpc-template-1.yml \
         --tags project="${PROJECT_TAG}" \
         --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" \
         --region us-east-1 \
