@@ -2,6 +2,7 @@ Parameters:
     EnvironmentName:
         Description: Environment name for resources
         Type: String
+        Default: default
     VpcCIDR:
         Description: Please enter the IP range (CIDR notation) for this VPC
         Type: String
@@ -25,6 +26,7 @@ Parameters:
     CostGroup:
         Description: Name of intern group
         Type: String
+        Default: default
 
 Resources:
     VPC:
